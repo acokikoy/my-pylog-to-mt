@@ -59,7 +59,6 @@ dt = datetime.now()
 str_now = datetime.strftime(dt, '%Y-%m-%d %H:%M:%S')
 
 # DataAPI: 投稿
-
 content_data = {
     'data': [
         {'data': str_now, 'id': '7', 'label': 'log_id'}, 
@@ -69,7 +68,10 @@ content_data = {
     'status': 'Publish'
 }
 
+# 認証が通ると api.access_token にアクセストークンがセットされる。
 api.authenticate()
+
+# 一件投稿
 r_status_code, r_json = api.create_content(content_data)
 
 # 結果表示: レスポンスを整形して表示する
